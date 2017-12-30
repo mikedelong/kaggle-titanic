@@ -35,3 +35,7 @@ logger.debug('data load from %s begin.' % train_file)
 titanic_df = pd.read_csv(train_file)
 logger.debug('data load complete.')
 logger.debug(titanic_df.head())
+
+# todo find a way to do this that allows us to log it rather than have it print directly to stdout
+# titanic_df.info()
+logger.debug(titanic_df.describe())
