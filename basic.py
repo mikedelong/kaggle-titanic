@@ -1,18 +1,13 @@
 # https://www.kaggle.com/ravaliraj/titanic-data-visualization-and-ml
 
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-
 import logging
 import os
-from pandas import Series, DataFrame
+
 import matplotlib.pyplot as plt
+import pandas as pd  # data processing, CSV file I/O (e.g. pd.read_csv)
 import seaborn as sns
-from sklearn.linear_model import LogisticRegression
-from sklearn import metrics
 
 # from sklearn.cross_validation import train_test_split
-from sklearn.ensemble import RandomForestClassifier
 
 # set up logging
 formatter = logging.Formatter('%(asctime)s : %(name)s :: %(levelname)s : %(message)s')
@@ -39,3 +34,10 @@ logger.debug(titanic_df.head())
 # todo find a way to do this that allows us to log it rather than have it print directly to stdout
 # titanic_df.info()
 logger.debug(titanic_df.describe())
+
+###Who were the passengers on the titanic? (What age, gender, class etc)
+
+###Gender Plot
+sns.factorplot('Sex', data=titanic_df, kind='count')
+sex_factorplot_file = './titanic_sex_factorplot.png'
+plt.savefig(sex_factorplot_file)
