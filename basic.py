@@ -4,6 +4,7 @@ import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 
 import logging
+import os
 
 # set up logging
 formatter = logging.Formatter('%(asctime)s : %(name)s :: %(levelname)s : %(message)s')
@@ -15,3 +16,6 @@ logger.addHandler(console_handler)
 console_handler.setLevel(logging.DEBUG)
 logger.debug('started')
 
+input_folder = './input/'
+for item in os.listdir(input_folder):
+    logger.debug('%s contains file or subfolder %s' % (input_folder, item))
