@@ -41,4 +41,7 @@ sex_factorplot_file = './titanic_sex_factorplot.png'
 logger.debug('saving sex factor plot as %s' % sex_factorplot_file)
 plt.savefig(sex_factorplot_file)
 
-# sns.factorplot('Pclass',data=titanic_df,kind='count')
+sns.factorplot('Pclass', data=titanic_df, kind='count')
+class_factorplot_file = './titanic_class_factorplot.png'
+logger.debug('saving classe factor plot as %s' % class_factorplot_file)
+plt.savefig(class_factorplot_file)
