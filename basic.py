@@ -41,7 +41,14 @@ sex_factorplot_file = './titanic_sex_factorplot.png'
 logger.debug('saving sex factor plot as %s' % sex_factorplot_file)
 plt.savefig(sex_factorplot_file)
 
+# plot class as a factor plot
 sns.factorplot('Pclass', data=titanic_df, kind='count')
 class_factorplot_file = './titanic_class_factorplot.png'
-logger.debug('saving classe factor plot as %s' % class_factorplot_file)
+logger.debug('saving class factor plot as %s' % class_factorplot_file)
 plt.savefig(class_factorplot_file)
+
+# plot class and sex together
+sns.factorplot('Pclass', data=titanic_df, hue='Sex', kind='count')
+class_sex_factorplot_file = './titanic_class_sex_factorplot.png'
+logger.debug('saving sex/class factor plot as %s' % class_sex_factorplot_file)
+plt.savefig(class_sex_factorplot_file)
