@@ -37,7 +37,10 @@ logger.debug(titanic_df.describe())
 
 ###Who were the passengers on the titanic? (What age, gender, class etc)
 
-###Gender Plot
+# plot gender/sex as a factor plot
 sns.factorplot('Sex', data=titanic_df, kind='count')
 sex_factorplot_file = './titanic_sex_factorplot.png'
+logger.debug('saving sex factor plot as %s' % sex_factorplot_file)
 plt.savefig(sex_factorplot_file)
+
+# sns.factorplot('Pclass',data=titanic_df,kind='count')
