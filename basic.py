@@ -52,3 +52,9 @@ sns.factorplot('Pclass', data=titanic_df, hue='Sex', kind='count')
 class_sex_factorplot_file = './titanic_class_sex_factorplot.png'
 logger.debug('saving sex/class factor plot as %s' % class_sex_factorplot_file)
 plt.savefig(class_sex_factorplot_file)
+
+# age histogram
+figure = plt.figure()
+titanic_df['Age'].hist(bins=70)
+age_histogram_file = './age_histogram.png'
+plt.savefig(age_histogram_file)
