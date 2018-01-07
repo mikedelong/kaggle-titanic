@@ -62,6 +62,7 @@ plt.savefig(age_histogram_file)
 del figure
 
 # add a facet grid that shows the age by sex
+figure = plt.figure()
 age_sex_figure = sns.FacetGrid(titanic_df, hue='Sex', aspect=5)
 age_sex_figure.map(sns.kdeplot, 'Age', shade=True)
 oldest = titanic_df['Age'].max()
@@ -70,7 +71,18 @@ age_sex_figure.add_legend()
 age_sex_facet_file = './age_sex_facets.png'
 logger.debug('saving age/sex facet KDEplot as %s' % age_sex_facet_file)
 plt.savefig(age_sex_facet_file)
+del figure
 
 # get the mean age
 mean_age = titanic_df['Age'].mean()
 logger.debug('mean passenger age: %.1f' % mean_age)
+
+# drop the cabin
+titanic_df.drop('Cabin', axis=1, inplace=True)
+
+figure = plt.figure()
+sns.factorplot('Embarked', data=titanic_df, kind='count')
+embarked_factorplot_file = './embarked_factorplot.png'
+logger.debug('saving embarked factor plot to %s' % embarked_factorplot_file)
+plt.savefig(embarked_factorplot_file)
+del figure
