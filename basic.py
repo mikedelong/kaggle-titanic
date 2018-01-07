@@ -70,3 +70,7 @@ age_sex_figure.add_legend()
 age_sex_facet_file = './age_sex_facets.png'
 logger.debug('saving age/sex facet KDEplot as %s' % age_sex_facet_file)
 plt.savefig(age_sex_facet_file)
+
+# get the mean age
+mean_age = titanic_df['Age'].mean()
+logger.debug('mean passenger age: %.1f' % mean_age)
