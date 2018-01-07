@@ -57,6 +57,16 @@ plt.savefig(class_sex_factorplot_file)
 figure = plt.figure()
 titanic_df['Age'].hist(bins=70)
 age_histogram_file = './age_histogram.png'
+logger.debug('saving age histogram as %s' % age_histogram_file)
 plt.savefig(age_histogram_file)
 del figure
 
+# add a facet grid that shows the age by sex
+age_sex_figure = sns.FacetGrid(titanic_df, hue='Sex', aspect=5)
+age_sex_figure.map(sns.kdeplot, 'Age', shade=True)
+oldest = titanic_df['Age'].max()
+age_sex_figure.set(xlim=(0, oldest))
+age_sex_figure.add_legend()
+age_sex_facet_file = './age_sex_facets.png'
+logger.debug('saving age/sex facet KDEplot as %s' % age_sex_facet_file)
+plt.savefig(age_sex_facet_file)
