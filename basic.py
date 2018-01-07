@@ -58,3 +58,5 @@ figure = plt.figure()
 titanic_df['Age'].hist(bins=70)
 age_histogram_file = './age_histogram.png'
 plt.savefig(age_histogram_file)
+del figure
+
