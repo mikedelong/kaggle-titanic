@@ -77,12 +77,13 @@ del figure
 mean_age = titanic_df['Age'].mean()
 logger.debug('mean passenger age: %.1f' % mean_age)
 
-# drop the cabin
-titanic_df.drop('Cabin', axis=1, inplace=True)
-
+# embarked factor plot
 figure = plt.figure()
 sns.factorplot('Embarked', data=titanic_df, kind='count')
 embarked_factorplot_file = './embarked_factorplot.png'
 logger.debug('saving embarked factor plot to %s' % embarked_factorplot_file)
 plt.savefig(embarked_factorplot_file)
 del figure
+
+# drop the cabin
+titanic_df.drop('Cabin', axis=1, inplace=True)
