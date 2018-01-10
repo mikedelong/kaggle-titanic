@@ -94,8 +94,11 @@ plt.savefig(embarked_by_class_factorplot_file)
 del figure
 
 titanic_df['Alone'] = titanic_df.Parch + titanic_df.SibSp
+# I know what I'm doing here, so turn  off this warning temporarily
+pd.options.mode.chained_assignment = None
 titanic_df['Alone'].loc[titanic_df['Alone'] > 0] = 'With Family'
 titanic_df['Alone'].loc[titanic_df['Alone'] == 0] = 'Without Family'
+pd.options.mode.chained_assignment = 'warn'
 figure = plt.figure()
 sns.factorplot('Alone', kind='count', data=titanic_df)
 alone_factorplot_file = './alone_factorplot.png'
