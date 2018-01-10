@@ -93,5 +93,15 @@ logger.debug('saving embarked/class factor plot to %s' % embarked_by_class_facto
 plt.savefig(embarked_by_class_factorplot_file)
 del figure
 
+titanic_df['Alone'] = titanic_df.Parch + titanic_df.SibSp
+titanic_df['Alone'].loc[titanic_df['Alone'] > 0] = 'With Family'
+titanic_df['Alone'].loc[titanic_df['Alone'] == 0] = 'Without Family'
+figure = plt.figure()
+sns.factorplot('Alone', kind='count', data=titanic_df)
+alone_factorplot_file = './alone_factorplot.png'
+logger.debug('saving alone/family factor plot to %s' % alone_factorplot_file)
+plt.savefig(alone_factorplot_file)
+del figure
+
 # drop the cabin
 titanic_df.drop('Cabin', axis=1, inplace=True)
