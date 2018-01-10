@@ -93,6 +93,7 @@ logger.debug('saving embarked/class factor plot to %s' % embarked_by_class_facto
 plt.savefig(embarked_by_class_factorplot_file)
 del figure
 
+# https://stackoverflow.com/questions/20625582/how-to-deal-with-settingwithcopywarning-in-pandas
 titanic_df['Alone'] = titanic_df.Parch + titanic_df.SibSp
 # I know what I'm doing here, so turn  off this warning temporarily
 pd.options.mode.chained_assignment = None
