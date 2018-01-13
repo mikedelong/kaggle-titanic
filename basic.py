@@ -123,6 +123,7 @@ logger.debug('saving survived/class factor plot to %s' % survived_class_factorpl
 plt.savefig(survived_class_factorplot_file)
 del figure
 
+# survived x sex factor plot
 figure = plt.figure()
 sns.factorplot('Pclass', 'Survived', data=titanic_df, hue='Sex')
 survived_sex_factorplot_file = './survived_sex_factorplot.png'
