@@ -107,5 +107,13 @@ logger.debug('saving alone/family factor plot to %s' % alone_factorplot_file)
 plt.savefig(alone_factorplot_file)
 del figure
 
+# survived factor plot
+figure = plt.figure()
+sns.factorplot('Survived', data=titanic_df, kind='count')
+survived_factorplot_file = './survived_factorplot.png'
+logger.debug('saving survived factor plot to %s' % survived_factorplot_file)
+plt.savefig(survived_factorplot_file)
+del figure
+
 # drop the cabin
 titanic_df.drop('Cabin', axis=1, inplace=True)
