@@ -123,5 +123,13 @@ logger.debug('saving survived/class factor plot to %s' % survived_class_factorpl
 plt.savefig(survived_class_factorplot_file)
 del figure
 
+figure = plt.figure()
+sns.factorplot('Pclass', 'Survived', data=titanic_df, hue='Sex')
+survived_sex_factorplot_file = './survived_sex_factorplot.png'
+logger.debug('saving survived/sex factor plot to %s' % survived_sex_factorplot_file)
+plt.savefig(survived_sex_factorplot_file)
+del figure
+
+
 # drop the cabin
 titanic_df.drop('Cabin', axis=1, inplace=True)
