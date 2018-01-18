@@ -131,6 +131,13 @@ logger.debug('saving survived/sex factor plot to %s' % survived_sex_factorplot_f
 plt.savefig(survived_sex_factorplot_file)
 del figure
 
+# age x survived lmplot
+figure = plt.figure()
+sns.lmplot('Age','Survived',data=titanic_df)
+age_survived_lmplot_file = './age_survived_lmplot.png'
+logger.debug('saving age/survived lm plot to %s' % age_survived_lmplot_file)
+plt.savefig(age_survived_lmplot_file)
+del figure
 
 # drop the cabin
 titanic_df.drop('Cabin', axis=1, inplace=True)
