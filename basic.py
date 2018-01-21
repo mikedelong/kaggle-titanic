@@ -82,7 +82,6 @@ del figure
 mean_age = titanic_df['Age'].mean()
 logger.debug('mean passenger age: %.1f' % mean_age)
 
-# todo close figure
 # embarked factor plot
 figure = plt.figure()
 sns.factorplot('Embarked', data=titanic_df, kind='count')
@@ -98,6 +97,7 @@ sns.factorplot('Embarked', data=titanic_df, hue='Pclass', kind='count')
 embarked_by_class_factorplot_file = './embarked__by_class_factorplot.png'
 logger.debug('saving embarked/class factor plot to %s' % embarked_by_class_factorplot_file)
 plt.savefig(embarked_by_class_factorplot_file)
+plt.close(figure)
 del figure
 
 # https://stackoverflow.com/questions/20625582/how-to-deal-with-settingwithcopywarning-in-pandas
