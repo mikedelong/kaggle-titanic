@@ -129,12 +129,12 @@ sns.factorplot('Pclass', 'Survived', data=titanic_df, hue='Sex')
 survived_sex_factorplot_file = './survived_sex_factorplot.png'
 logger.debug('saving survived/sex factor plot to %s' % survived_sex_factorplot_file)
 plt.savefig(survived_sex_factorplot_file)
+plt.close(figure)
 del figure
-
 
 # age x survived lmplot
 figure = plt.figure()
-sns.lmplot('Age','Survived',data=titanic_df)
+sns.lmplot('Age', 'Survived', data=titanic_df)
 age_survived_lmplot_file = './age_survived_lmplot.png'
 logger.debug('saving age/survived lm plot to %s' % age_survived_lmplot_file)
 plt.savefig(age_survived_lmplot_file)
@@ -149,9 +149,6 @@ logger.debug('saving age/survived/class lm plot to %s' % age_survived_class_lmpl
 plt.savefig(age_survived_class_lmplot_file)
 plt.close(figure)
 del figure
-
-
-
 
 # drop the cabin
 titanic_df.drop('Cabin', axis=1, inplace=True)
