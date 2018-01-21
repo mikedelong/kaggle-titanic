@@ -35,24 +35,28 @@ logger.debug(titanic_df.head())
 # titanic_df.info()
 logger.debug(titanic_df.describe())
 
+# todo close figure
 # plot gender/sex as a factor plot
 sns.factorplot('Sex', data=titanic_df, kind='count')
 sex_factorplot_file = './titanic_sex_factorplot.png'
 logger.debug('saving sex factor plot as %s' % sex_factorplot_file)
 plt.savefig(sex_factorplot_file)
 
+# todo close figure
 # plot class as a factor plot
 sns.factorplot('Pclass', data=titanic_df, kind='count')
 class_factorplot_file = './titanic_class_factorplot.png'
 logger.debug('saving class factor plot as %s' % class_factorplot_file)
 plt.savefig(class_factorplot_file)
 
+# todo close figure
 # plot class and sex together
 sns.factorplot('Pclass', data=titanic_df, hue='Sex', kind='count')
 class_sex_factorplot_file = './titanic_class_sex_factorplot.png'
 logger.debug('saving sex/class factor plot as %s' % class_sex_factorplot_file)
 plt.savefig(class_sex_factorplot_file)
 
+# todo close figure
 # age histogram
 figure = plt.figure()
 titanic_df['Age'].hist(bins=70)
@@ -61,6 +65,7 @@ logger.debug('saving age histogram as %s' % age_histogram_file)
 plt.savefig(age_histogram_file)
 del figure
 
+# todo close figure
 # add a facet grid that shows the age by sex
 figure = plt.figure()
 age_sex_figure = sns.FacetGrid(titanic_df, hue='Sex', aspect=5)
@@ -77,6 +82,7 @@ del figure
 mean_age = titanic_df['Age'].mean()
 logger.debug('mean passenger age: %.1f' % mean_age)
 
+# todo close figure
 # embarked factor plot
 figure = plt.figure()
 sns.factorplot('Embarked', data=titanic_df, kind='count')
@@ -85,6 +91,7 @@ logger.debug('saving embarked factor plot to %s' % embarked_factorplot_file)
 plt.savefig(embarked_factorplot_file)
 del figure
 
+# todo close figure
 # embarked factor plot broken out by class
 figure = plt.figure()
 sns.factorplot('Embarked', data=titanic_df, hue='Pclass', kind='count')
@@ -93,6 +100,7 @@ logger.debug('saving embarked/class factor plot to %s' % embarked_by_class_facto
 plt.savefig(embarked_by_class_factorplot_file)
 del figure
 
+# todo close figure
 # https://stackoverflow.com/questions/20625582/how-to-deal-with-settingwithcopywarning-in-pandas
 titanic_df['Alone'] = titanic_df.Parch + titanic_df.SibSp
 # I know what I'm doing here, so turn  off this warning temporarily
