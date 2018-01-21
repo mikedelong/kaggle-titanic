@@ -56,13 +56,13 @@ class_sex_factorplot_file = './titanic_class_sex_factorplot.png'
 logger.debug('saving sex/class factor plot as %s' % class_sex_factorplot_file)
 plt.savefig(class_sex_factorplot_file)
 
-# todo close figure
 # age histogram
 figure = plt.figure()
 titanic_df['Age'].hist(bins=70)
 age_histogram_file = './age_histogram.png'
 logger.debug('saving age histogram as %s' % age_histogram_file)
 plt.savefig(age_histogram_file)
+plt.close(figure)
 del figure
 
 # add a facet grid that shows the age by sex
