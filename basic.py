@@ -146,6 +146,7 @@ sns.lmplot('Age', 'Survived', data=titanic_df, hue='Pclass')
 age_survived_class_lmplot_file = './age_survived_class_lmplot.png'
 logger.debug('saving age/survived/class lm plot to %s' % age_survived_class_lmplot_file)
 plt.savefig(age_survived_class_lmplot_file)
+plt.close(figure)
 del figure
 
 
