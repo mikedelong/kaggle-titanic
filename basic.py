@@ -35,21 +35,18 @@ logger.debug(titanic_df.head())
 # titanic_df.info()
 logger.debug(titanic_df.describe())
 
-# todo close figure
 # plot gender/sex as a factor plot
 sns.factorplot('Sex', data=titanic_df, kind='count')
 sex_factorplot_file = './titanic_sex_factorplot.png'
 logger.debug('saving sex factor plot as %s' % sex_factorplot_file)
 plt.savefig(sex_factorplot_file)
 
-# todo close figure
 # plot class as a factor plot
 sns.factorplot('Pclass', data=titanic_df, kind='count')
 class_factorplot_file = './titanic_class_factorplot.png'
 logger.debug('saving class factor plot as %s' % class_factorplot_file)
 plt.savefig(class_factorplot_file)
 
-# todo close figure
 # plot class and sex together
 sns.factorplot('Pclass', data=titanic_df, hue='Sex', kind='count')
 class_sex_factorplot_file = './titanic_class_sex_factorplot.png'
