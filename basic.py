@@ -65,7 +65,6 @@ logger.debug('saving age histogram as %s' % age_histogram_file)
 plt.savefig(age_histogram_file)
 del figure
 
-# todo close figure
 # add a facet grid that shows the age by sex
 figure = plt.figure()
 age_sex_figure = sns.FacetGrid(titanic_df, hue='Sex', aspect=5)
@@ -76,6 +75,7 @@ age_sex_figure.add_legend()
 age_sex_facet_file = './age_sex_facets.png'
 logger.debug('saving age/sex facet KDEplot as %s' % age_sex_facet_file)
 plt.savefig(age_sex_facet_file)
+plt.close(figure)
 del figure
 
 # get the mean age
