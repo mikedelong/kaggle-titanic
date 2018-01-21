@@ -88,13 +88,13 @@ sns.factorplot('Embarked', data=titanic_df, kind='count')
 embarked_factorplot_file = './embarked_factorplot.png'
 logger.debug('saving embarked factor plot to %s' % embarked_factorplot_file)
 plt.savefig(embarked_factorplot_file)
+plt.close(figure)
 del figure
 
-# todo close figure
 # embarked factor plot broken out by class
 figure = plt.figure()
 sns.factorplot('Embarked', data=titanic_df, hue='Pclass', kind='count')
-embarked_by_class_factorplot_file = './embarked__by_class_factorplot.png'
+embarked_by_class_factorplot_file = './embarked_by_class_factorplot.png'
 logger.debug('saving embarked/class factor plot to %s' % embarked_by_class_factorplot_file)
 plt.savefig(embarked_by_class_factorplot_file)
 plt.close(figure)
