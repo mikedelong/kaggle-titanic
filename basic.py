@@ -120,6 +120,7 @@ figure = plt.figure()
 sns.factorplot('Survived', data=titanic_df, kind='count', hue='Pclass')
 survived_class_factorplot_file = './survived_class_factorplot.png'
 logger.debug('saving survived/class factor plot to %s' % survived_class_factorplot_file)
+plt.close(figure)
 plt.savefig(survived_class_factorplot_file)
 del figure
 
