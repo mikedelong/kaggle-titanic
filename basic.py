@@ -100,7 +100,6 @@ logger.debug('saving embarked/class factor plot to %s' % embarked_by_class_facto
 plt.savefig(embarked_by_class_factorplot_file)
 del figure
 
-# todo close figure
 # https://stackoverflow.com/questions/20625582/how-to-deal-with-settingwithcopywarning-in-pandas
 titanic_df['Alone'] = titanic_df.Parch + titanic_df.SibSp
 # I know what I'm doing here, so turn  off this warning temporarily
@@ -113,6 +112,7 @@ sns.factorplot('Alone', kind='count', data=titanic_df)
 alone_factorplot_file = './alone_factorplot.png'
 logger.debug('saving alone/family factor plot to %s' % alone_factorplot_file)
 plt.savefig(alone_factorplot_file)
+plt.close(figure)
 del figure
 
 # survived factor plot
